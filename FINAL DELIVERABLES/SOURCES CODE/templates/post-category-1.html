@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Newswaves</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!--Favicon-->
+ <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+ <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+ <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+ <!-- THEME CSS
+ ================================================== -->
+ <!-- Bootstrap -->
+ <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bootstrap/css/bootstrap.min.css') }}">
+ <!-- FontAwesome -->
+ <link rel="stylesheet" href="{{ url_for('static', filename='plugins/font-awesome/css/font-awesome.min.css') }}">
+ <!-- Slick Carousel -->
+ <link rel="stylesheet" href="{{ url_for('static', filename='plugins/slick-carousel/slick.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='plugins/slick-carousel/slick-theme.css') }}">
+ <!-- manin stylesheet -->
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="header-navigation d-none d-lg-block">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='images/logos/NEWS.png') }}" alt=""> <!-- Replace Logo Here -->
+                    </a>
+                </div>
+                <!-- End Logo -->
+            </div>
+        </div>
+    </div>
+</header>
+<div class="hwrap"><div class="hmove">
+    <div class="hitem">Login with us to read Breaking and Trending News!!!</div>
+    <div class="hitem">Login with us to read Breaking and Trending News!!!</div>
+    <div class="hitem">Login with us to read Breaking and Trending News!!!</div>
+    <div class="hitem">Login with us to read Breaking and Trending News!!!</div>
+  </div>
+</div>
+<style>
+    /* (A) FIXED WRAPPER */
+    .hwrap {
+    overflow: hidden; /* HIDE SCROLL BAR */
+    background: black;
+    margin-left: 25%;
+    margin-top: -9.035%;
+    margin-bottom: 2%;
+    }
+    
+    /* (B) MOVING TICKER WRAPPER */
+    .hmove { display: flex; }
+    
+    /* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
+    .hitem {
+    color: #eee;
+    font-size: 150%;
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 29px;
+    text-align: center;
+    }
+    
+    /* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+    /* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
+    @keyframes tickerh {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-400%, 0, 0); }
+    }
+    .hmove { animation: tickerh linear 40s infinite; }
+    .hmove:hover { animation-play-state: paused; }
+    </style>
+
+<div class="main-navbar clearfix bg-dark ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg site-main-nav navigation">
+                      <a class="navbar-brand d-lg-none" href="/">
+                        <img src="images/logos/news footer.png" alt=""> 
+                     </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                  </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                           
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="/" role="button" data-toggle="" aria-haspopup="true" aria-expanded="">
+                                 Home
+                                </a>
+                            </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Post
+                                    </a>
+                                    <div class="dropdown-menu" >
+                                        <a class="dropdown-item" href="/post-left-sidebar">Education</a>
+                                        <a class="dropdown-item" href="/post-full-width">Business</a>
+                                        <a class="dropdown-item" href="/single-post">Entertainment</a>
+                                        <a class="dropdown-item" href="/post-category-1">Sports</a>
+                                        <a class="dropdown-item" href="/post-category-2">Weather</a>
+                                        <a class="dropdown-item" href="/author">Author</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Account
+                                    </a>
+                                    <div class="dropdown-menu">
+                                      <a class="dropdown-item" href="/login">Log In</a>
+                                      <a class="dropdown-item" href="/register">Register</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      About
+                                    </a>
+                                    <div class="dropdown-menu">
+                                      <a class="dropdown-item" href="/about">About</a>
+                                      <a class="dropdown-item" href="/terms">Terms</a>
+                                      <a class="dropdown-item" href="/privacy">Privacy Policy</a>
+                                    </div>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="/contact">Contact</a>
+                                </li>
+    
+                            </ul>
+                            <div class="nav-search ml-auto d-none d-lg-block">
+                                <span id="search">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    <form class="site-search" method="get">
+        <input type="text" id="searchInput" name="site_search" placeholder="Enter Keyword Here..." autofocus="">
+        <div class="search-close">
+            <span class="close-search">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+    </form>
+</div>
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>Lifestyle</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="block-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+				<div class="block category-listing">
+					<h3 class="news-title"><span>Lifestyle</span></h3>
+				</div>
+				<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="post-block-wrapper post-grid-view clearfix">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-17.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <a class="post-category" href="/post-category-2">Google</a>
+                <h2 class="post-title mt-3">
+                    <a href="/single-post">Ex-Googler warns coding bootcamps are lacking</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time">an hour ago</span>
+                    <span class="post-author">by
+                        <a href="/author">John Snow</a>
+                    </span>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eaque, aliquid accusamus 
+                    soluta!...
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="post-block-wrapper post-grid-view clearfix">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-05.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <a class="post-category" href="/post-category-2">Food</a>
+                <h2 class="post-title mt-3">
+                    <a href="/single-post">Here's How To Get Free Pizza On</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time">an hour ago</span>
+                    <span class="post-author">by
+                        <a href="/author">John Snow</a>
+                    </span>
+                </div>
+                
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus rerum eius eum, 
+                    sapiente consequuntur tempore reiciendis harum ducimus repellendus officiis?
+                </p>               
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="post-block-wrapper post-grid-view clearfix">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-14.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <a class="post-category" href="/post-category-2">Travel</a>
+                
+                <h2 class="post-title mt-3">
+                    <a href="/single-post">Snow and Freezing Rain in Paris Forces the</a>
+                </h2>
+               
+               <div class="post-meta">
+                    <span class="posted-time">an hour ago</span>
+                    <span class="post-author">by
+                        <a href="/author">John Snow</a>
+                    </span>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis corporis officia totam 
+                    autem adipisci sapiente dignissimos quae eaque odit nostrum?
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="post-block-wrapper post-grid-view clearfix">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-04.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <a class="post-category" href="/post-category-2">Google</a>
+        
+                <h2 class="post-title mt-3">
+                    <a href="/single-post">Intel’s new smart glasses actually look good</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time">an hour ago</span>
+                    <span class="post-author">by
+                        <a href="/author">John Snow</a>
+                    </span>
+                </div>
+               
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt minus, perferendis deleniti 
+                    facere asperiores voluptatum consequuntur fugiat? Ipsam, sit.
+                </p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+        <div class="post-block-wrapper post-grid-view clearfix">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-03.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <a class="post-category" href="/post-category-2">Apple</a>
+               
+                <h2 class="post-title title-large mt-3">
+                    <a href="/single-post">Apple HomePod review: locked in</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time">an hour ago</span>
+                    <span class="post-author">by
+                        <a href="/author">John Snow</a>
+                    </span>
+                </div>
+                
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id magnam dolorum consectetur 
+                    obcaecati enim officia, eveniet quibusdam deserunt laboriosam unde
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="post-block-wrapper post-grid-view clearfix">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-13.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <a class="post-category" href="/post-category-2">Marc</a>
+                
+                <h2 class="post-title mt-3">
+                    <a href="/single-post">An Asteroid Is Passing Earth Today: Here's How to</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time">an hour ago</span>
+                    <span class="post-author">by
+                        <a href="/author">John Snow</a>
+                    </span>
+                </div>
+               
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo veritatis odio nesciunt enim? 
+                    Eos, aut. Ducimus delectus cupiditate quidem facere?
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+				<nav aria-label="pagination-wrapper" class="pagination-wrapper">
+  <ul class="pagination justify-content-center">
+    <li class="page-item active">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true"><i class="fa fa-angle-double-left mr-2"></i></span>
+        <span class="">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span class="">Next</span>
+        <span aria-hidden="true"><i class="fa fa-angle-double-right ml-2"></i></span>
+      </a>
+    </li>
+  </ul>
+</nav>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+				<div class="sidebar sidebar-right">
+					<div class="widget">
+    <h3 class="news-title">
+        <span>Stay in touch</span>
+    </h3>
+
+    <ul class="list-inline social-widget">
+        <li class="list-inline-item">
+              <a class="social-page youtube" href="#">
+                <i class="fa fa-play"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-page facebook" href="#">
+               <i class="fa fa-facebook"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-page twitter" href="#">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-page pinterest" href="#">
+                <i class="fa fa-pinterest"></i>
+            </a>
+        </li>
+         <li class="list-inline-item">
+            <a class="social-page linkedin" href="#">
+                <i class="fa fa-linkedin"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-page youtube" href="#">
+                <i class="fa fa-youtube"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+					<div class="widget">
+    <img class="banner img-fluid" src="{{ url_for('static', filename='images/banner-ads/ad-sidebar.png') }}" alt="300x300 ads"/>
+</div>
+					<div class="widget">
+    <h3 class="news-title">
+        <span>Hot News</span>
+    </h3>
+    <div class="post-overlay-wrapper">
+        <div class="post-thumbnail">
+            <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-15.jpg') }}" alt="post-thumbnail"/>
+        </div>
+        <div class="post-content">
+            <a class="post-category white" href="/post-category-1">Fashion</a>
+            <h2 class="post-title">
+                <a href="/single-post">First Look At Self-Portrait's Autumn Collection...</a>
+            </h2>
+            <div class="post-meta white">
+                <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>17 jun,2019</span>
+                <span> by </span>
+                <span class="post-author">
+                    <a href="/author">Jammy Anderson</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="post-list-block">
+        <div class="post-block-wrapper post-float ">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-03.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title title-sm">
+                    <a href="/single-post">Apple HomePod review: locked in</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>2 hours ago</span>
+                </div>
+            </div>
+        </div>
+        <div class="post-block-wrapper post-float">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="images/news/news-05.jpg" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title title-sm">
+                    <a href="/single-post">Intel’s new smart glasses actually look good</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time"><i class="fa fa-clock-o mr-1"></i> 15 March , 2019</span>
+                </div>
+            </div>
+        </div>
+        <div class="post-block-wrapper post-float">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-11.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title title-sm">
+                    <a href="/single-post">Free Two-Hour Delivery From Whole Foods</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time"><i class="fa fa-clock-o mr-1"></i> 5 hours ago</span>
+                </div>
+            </div>
+        </div>
+        <div class="post-block-wrapper post-float">
+            <div class="post-thumbnail">
+                <a href="/single-post">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/news/news-06.jpg') }}" alt="post-thumbnail"/>
+                </a>
+            </div>
+
+            <div class="post-content">
+                <h2 class="post-title title-sm">
+                    <a href="/single-post">Here's How To Get Free Pizza On</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time"><i class="fa fa-clock-o mr-1"></i> 17 June, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer class="footer footer-main ">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-sm-12 col-lg-6 text-center">
+                <a href="/"><img src="{{ url_for('static', filename='images/logos/news footer.png') }}" alt="" class="img-fluid"></a>
+                <p class="mt-4">We are the good news that we have been looking for, Demonstrating that every dusk holds a dawn disguised within it. Today we don't burst into a new world. We begin it.</p>
+
+                <ul class="list-inline footer-social">
+                    <li class="li list-inline-item"><a href="https://www.facebook.com/themefisher"><i class="fa fa-facebook"></i></a></li>
+                    <li class="li list-inline-item"><a href="https://twitter.com/themefisher"><i class="fa fa-twitter"></i></a></li>
+                    <li class="li list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li class="li list-inline-item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li class="li list-inline-item"><a href="#"><i class="fa fa-rss"></i></a></li>
+                    <li class="li list-inline-item"><a href="#"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="scroll-to-top">
+                <button class="btn btn-primary" title="Back to Top">
+                    <i class="fa fa-angle-up"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- THEME JAVASCRIPT FILES
+================================================== -->
+<!-- initialize jQuery Library -->
+<script src="{{ url_for('static', filename='plugins/jquery/jquery.js') }}"></script>
+<!-- Bootstrap jQuery -->
+<script src="{{ url_for('static', filename='plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- Slick Slider -->
+<script src="{{ url_for('static', filename='plugins/slick-carousel/slick.min.js') }}"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<script src="{{ url_for('static', filename='plugins/google-map/gmap.js') }}"></script>
+<!-- main js -->
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "c1fa6261-4161-4b91-a6b7-51208be15ed8", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "b58b1267-0910-4930-a32a-2eb4dfa5eb5b", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+</body>
+</html>
