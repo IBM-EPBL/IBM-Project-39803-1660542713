@@ -1,0 +1,20 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: newswaves
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: newswaves
+   template:
+     metadata:
+       labels:
+         app: newswaves
+     spec:
+       containers:
+       - name: flasknode
+         image: sethukms/newswaves1
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000
